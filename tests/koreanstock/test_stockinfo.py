@@ -178,10 +178,5 @@ try:
         stock_exchange_type="1"    # KRX
     ), print_result=False)
 
-    print_result("ka90012_result", stock_info.margin_trading_transaction_details_request_ka90012(
-        date="20241101",        # 일자
-        market_type="101"       # 코스닥
-    ), print_result=False)
-
 except Exception as e:
     print("에러 발생:", str(e))

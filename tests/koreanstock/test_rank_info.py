@@ -198,12 +198,6 @@ try:
         orgn_tp="9000"  # 외국인
     ), print_result=False)
     
-    print_result("ka10069_result", rank_info.top_10_short_sale_stocks_request_ka10069(
-        strt_dt="20241106",  # 시작일자
-        mrkt_tp="000",  # 전체
-        end_dt="20241107",  # 종료일자
-    ), print_result=False)
-    
     print_result("ka10098_result", rank_info.after_market_price_change_rate_ranking_request_ka10098(
         mrkt_tp="000",  # 전체
         sort_base="1",  # 종가순
