@@ -39,6 +39,24 @@ try:
         all_tp="1"
     ), print_result=False)
     
+    print_result("ka10069_result", slb.top10_stock_lending_request_ka10069(
+        strt_dt="20241110",
+        end_dt="20241125",
+        mrkt_tp="001"
+    ), print_result=False)
+    
+    print_result("ka20068_result", slb.stockwise_lending_trend_request_ka20068(
+        stk_cd="005930",
+        strt_dt="20250401",
+        end_dt="20250430",
+        all_tp="0"
+    ), print_result=False)
+    
+    print_result("ka90012_result", slb.stock_lending_details_request_ka90012(
+        dt="20241101",
+        mrkt_tp="101"
+    ), print_result=False)
+    
     
 except Exception as e:
     print("에러 발생:", str(e))
