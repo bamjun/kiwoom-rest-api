@@ -11,6 +11,7 @@ dependencies = [
     "httpx>=0.28.0",
     "typer>=0.9.0",
     "rich>=13.0.0",
+    "websockets>=12.0",
 ]
 
 [tool.poetry]
@@ -26,6 +27,7 @@ python = ">=3.9,<4.0"
 httpx = "^0.28.0"
 typer = "^0.9.0"
 rich = "^13.0.0"
+websockets = "^12.0"
 
 [tool.poetry.scripts]
 kiwoom = "kiwoom_rest_api.cli.main:app"
