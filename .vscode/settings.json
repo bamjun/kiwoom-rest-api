@@ -1,0 +1,33 @@
+{
+  "postman.settings.dotenv-detection-notification-visibility": false,
+  // 기본 설정 (예: 4칸 들여쓰기)
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  // Python 파일만 4칸
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  // JavaScript 파일만 2칸
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  // YAML 파일은 space 2칸 (탭 절대 안 됨)
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  // HTML 파일은 2칸
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
+}
+
+
+

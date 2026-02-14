@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🤖 Codex: Generate Commit Message",
+      "type": "shell",
+      "command": "cd \"${workspaceFolder}\"; if [ -f .copilot-commit-message-instructions.md ]; then EXISTING=\"$(cat .copilot-commit-message-instructions.md)\"; else EXISTING=\"\"; fi; codex exec \"git diff --cached --stat. git status --short.  git diff --cached 사용해서 이를 바탕으로 git commit 메시지를 생성(한글버전과 영어버전 ---으로 구분), 코드를 실무 기준으로 분석해서 각 줄의 역할·문법 의미·왜 이렇게 구현했는지·대안 방식까지 함께 설명(---으로 영역 구분)하고 commit-message.md 넣어줘.\\n\\n[EXISTING MESSAGE]\\n$EXISTING\" --model gpt-5.3-codex --config model_reasoning_effort='low'",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "🤖 Codex: Generate Commit Message (bash style)",
+      "type": "shell",
+      "command": "cd \"${workspaceFolder}\"; STAT=\"$(git diff --cached --stat)\"; STATUS=\"$(git status --short)\"; DIFF=\"$(git diff --cached)\"; if [ -f .copilot-commit-message-instructions.md ]; then EXISTING=\"$(cat .copilot-commit-message-instructions.md)\"; else EXISTING=\"\"; fi; codex \"다음은 현재 git staged 상태 요약이다. 이를 바탕으로 git commit 메시지를 생성하고 commit-message.md 넣어줘.\\n\\n[STAT]\\n$STAT\\n[STATUS]\\n$STATUS\\n[DIFF]\\n$DIFF\\n[EXISTING MESSAGE]\\n$EXISTING\" --model gpt-5.1-codex-mini --config model_reasoning_effort='medium'",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "✨ gemini: Generate Commit Message",
+      "type": "shell",
+      "command": "cd \"${workspaceFolder}\"; STAT=\"$(git diff --cached --stat)\"; STATUS=\"$(git status --short)\"; DIFF=\"$(git diff --cached)\"; if [ -f .copilot-commit-message-instructions.md ]; then EXISTING=\"$(cat .copilot-commit-message-instructions.md)\"; else EXISTING=\"\"; fi; GEMINI_CONFIG_DIR=/tmp/empty gemini \"다음은 현재 git staged 상태 요약이다. 이를 바탕으로 git commit 메시지를 생성해서 출력해줘.\\n\\n[STAT]\\n$STAT\\n[STATUS]\\n$STATUS\\n[DIFF]\\n$DIFF\\n[EXISTING MESSAGE]\\n$EXISTING\" --model gemini-2.5-flash-lite",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}
